@@ -20,7 +20,11 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["lib", "src"],
+
+  "include": [
+    "lib",
+    "example"
+  ],
 
   "exclude": ["node_modules", "public", ".idea"],
   "references": [{ "path": "./tsconfig.node.json" }]

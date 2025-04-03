@@ -15,6 +15,10 @@ export default defineConfig({
       include: ['lib']
     })
   ],
+  server: {
+    port: 5001,
+    open: './example/index.html',
+  },
 
   build: {
     copyPublicDir: false,

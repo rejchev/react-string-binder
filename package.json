@@ -1,21 +1,45 @@
 {
   "name": "@rejchev/react-string-binder",
   "private": false,
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
+
+  "author": {
+    "name": "rejchev",
+    "url": "https://github.com/rejchev"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rejchev/react-string-binder.git"
+  },
+
+  "license": "MIT",
+
+  "keywords": [
+    "react",
+    "typescript",
+    "string binder",
+    "keyword binder",
+    "keyword"
+  ],
+
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig.json && vite build",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
-    "preview": "vite preview",
     "prepublishOnly": "npm run build"
   },
+
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
+
   "main": "./dist/react-string-binder.umd.cjs",
   "module": "./dist/react-string-binder.js",
   "types": "./dist/index.d.ts",
+
   "exports": {
     ".": {
       "import": "./dist/react-string-binder.js",
@@ -23,10 +47,12 @@
       "require": "./dist/react-string-binder.umd.cjs"
     }
   },
+
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
+
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@types/node": "^22.14.0",
