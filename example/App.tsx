@@ -1,8 +1,4 @@
-// import {StringBinder} from "../lib";
-
-import {StringBinder} from "@rejchev/react-string-binder";
-
-// import * as StringBinderT from "@rejchev/react-string-binder";
+import {StringBinder} from "../lib";
 
 function App() {
   const sbinder = StringBinder
