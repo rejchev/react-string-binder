@@ -3,6 +3,9 @@ A simple react string binder.
 
 The StringBinder allows you to replace keywords in plain text with ReactNode elements
 
+## Install
+`npm i @rejchev/react-string-binder`
+
 ## Usage
 ### Keywords
 A keyword in plain text must start with `$` and contain only `A-Za-z` with out any spaces.
@@ -25,13 +28,11 @@ const multiple = "$flowers and $crowns.";
 Bind object keys must be same as keywords but with out `$`
 
 ```jsx
-import {StringBinder} from "@rejchev/react-string-binder";
-
-const sbinder = StringBinder.Instance();
+import StringBinderInstance from "@rejchev/react-string-binder";
 
 const text = "This is a simple $example";
 
-sbinder.bind(text, {
+StringBinderInstance.bind(text, {
     example: <hr />
 })
 
@@ -41,17 +42,15 @@ sbinder.bind(text, {
 
 ```jsx
 
-import {StringBinder} from "@rejchev/react-string-binder";
-
-const sbinder = StringBinder.Instance();
+import StringBinderInstance from "@rejchev/react-string-binder";
 
 const text = 
   "The spring sun warms the awakening nature. " +
   "Birds chirp joyfully in the tree $crowns, $flowers stretch towards the heavenly surface. " +
   "The air is filled with freshness and the aroma of the first flowers."
 
-const element = sbinder.bind(text, {
-  crowns: <a href={'//en.wikipedia.org/wiki/Crown'} target={'_blank'}>crowns</a>,
-  flowers: <a href={'//en.wikipedia.org/wiki/Flower'} target={'_blank'}>flowers</a>
+const element = StringBinderInstance.bind(text, {
+  crowns: <a href={'https://en.wikipedia.org/wiki/Crown_(botany)'} target={'_blank'}>crowns</a>,
+  flowers: <a href={'https://en.wikipedia.org/wiki/Flower'} target={'_blank'}>flowers</a>
 })
 ```
