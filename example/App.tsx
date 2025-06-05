@@ -1,9 +1,7 @@
-import {StringBinder} from "../lib";
+import StringBinderInstance from "../lib";
+
 
 function App() {
-  const sbinder = StringBinder
-
-    .Instance();
 
   const text =
     "The spring sun warms the awakening nature. " +
@@ -13,7 +11,7 @@ function App() {
   return (
     <>
       <p className="read-the-docs">
-        {sbinder.bind(text, {
+        {StringBinderInstance.bind(text, {
           crowns: <a href={'//google.com'} target={'_blank'}>crowns</a>,
           flowers: <a href={'//yandex.ru'} target={'_blank'}>flowers</a>
         })}
