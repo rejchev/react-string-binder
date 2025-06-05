@@ -23,9 +23,8 @@
 
   "include": [
     "lib",
-    "example"
   ],
 
-  "exclude": ["node_modules", "public", ".idea"],
+  "exclude": ["node_modules", "public", ".idea", "example"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
