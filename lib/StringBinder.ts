@@ -21,11 +21,8 @@ class StringBinder {
   private static _instance?: StringBinder;
 
   public static Instance() : StringBinder {
-    let buf : StringBinder | undefined;
-
-    if(!(buf = this._instance))
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      this._instance = (buf = new StringBinder());
+    if(!this._instance)
+      this._instance = new StringBinder();
 
     return this._instance;
   }
