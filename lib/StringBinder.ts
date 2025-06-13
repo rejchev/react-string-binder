@@ -84,6 +84,9 @@ class StringBinder {
 
       keyIdx = -1;
 
+      if (j >= len || str[j] !== StringBinder.SpecialSymbol)
+        continue;
+
       if(!sub.length) {
         buf += str[i];
         continue;
@@ -92,7 +95,7 @@ class StringBinder {
       chain.push(sub);
       buf += StringBinder.Anchor;
 
-      i += sub.length;
+      i += sub.length + 1;
     }
 
     return {
