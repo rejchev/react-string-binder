@@ -32,8 +32,7 @@
   },
 
   "files": [
-    "dist",
-    "README.md"
+    "dist"
   ],
 
   "main": "./dist/react-string-binder.umd.cjs",

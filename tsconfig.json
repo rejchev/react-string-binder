@@ -25,6 +25,6 @@
     "lib",
   ],
 
-  "exclude": ["node_modules", "public", ".idea", "example"],
+  "exclude": ["node_modules", "public", ".idea", "example", "LICENSE", "README.md"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
