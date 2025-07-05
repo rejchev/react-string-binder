@@ -1,5 +1,13 @@
-# React String Binder
-A simple react string binder.
+<h1 align=center>React String Binder</h1> 
+<div align=center>
+
+[![CI](https://github.com/rejchev/react-string-binder/actions/workflows/ci.yml/badge.svg)](https://github.com/rejchev/react-string-binder/actions/workflows/ci.yml)
+[![LICENSE](https://img.shields.io/github/license/rejchev/sm-jansson)](LICENSE)
+
+</div>
+
+## About
+A simple react string binder lib.
 
 The StringBinder allows you to replace keywords in plain text with ReactNode elements
 
