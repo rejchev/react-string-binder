@@ -1,4 +1,4 @@
-import StringBinderInstance from "../lib";
+import StringBinderInstance, {StringBinderT} from "../lib";
 
 
 function App() {
@@ -28,28 +28,22 @@ function App() {
     // Test <a href="//yandex.ru" target="_blank">flowers</a><a href="//yandex.ru" target="_blank">flowers</a> <br/>
     "Test $flowers$$flowers$ $n$"
 
+  const binder : StringBinderT = {
+    crowns: <a href={'//google.com'} target={'_blank'}>crowns</a>,
+    flowers: <a href={'//yandex.ru'} target={'_blank'}>flowers</a>,
+    n: <br/>,
+  }
+
   return (
     <>
       <p className="read-the-docs">
-        {StringBinderInstance.bind(text, {
-          crowns: <a href={'//google.com'} target={'_blank'}>crowns</a>,
-          flowers: <a href={'//yandex.ru'} target={'_blank'}>flowers</a>,
-          n: <br/>,
-        })}
+        {StringBinderInstance.bind(text, binder)}
       </p>
       <p className="read-the-docs">
-        {StringBinderInstance.bind(unknownKeys, {
-          crowns: <a href={'//google.com'} target={'_blank'}>crowns</a>,
-          flowers: <a href={'//yandex.ru'} target={'_blank'}>flowers</a>,
-          n: <br/>,
-        })}
+        {StringBinderInstance.bind(unknownKeys, binder)}
       </p>
       <p className="read-the-docs">
-        {StringBinderInstance.bind(oneMore, {
-          crowns: <a href={'//google.com'} target={'_blank'}>crowns</a>,
-          flowers: <a href={'//yandex.ru'} target={'_blank'}>flowers</a>,
-          n: <br/>,
-        })}
+        {StringBinderInstance.bind(oneMore, binder)}
       </p>
     </>
   )
