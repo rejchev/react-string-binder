@@ -18,8 +18,18 @@
 
   "keywords": [
     "react",
+    "react 19",
+    "react 18",
+    "react 17",
+    "react-utils",
+    "utils",
+    "js",
+    "javascript",
+    "ts",
     "typescript",
     "string binder",
+    "plain text",
+    "plain text key binder",
     "keyword binder",
     "keyword"
   ],
@@ -47,9 +57,12 @@
     }
   },
 
+  "engines": {
+    "node": ">=18"
+  },
+
   "peerDependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": ">=17.0.0"
   },
 
   "devDependencies": {
