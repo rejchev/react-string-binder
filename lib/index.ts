@@ -1,8 +1,8 @@
 import * as React from "react";
 
 type ProcessResult = {
-  str: string,
-  bindChain: string[]
+  fragments: string[],
+  binds: string[]
 }
 
 export type StringBinderT = {
@@ -12,8 +12,6 @@ export type StringBinderT = {
 class StringBinder {
 
   public static readonly SpecialSymbol : string = '$';
-
-  public static readonly Anchor : string = "%1s";
 
   private static readonly TruePattern : RegExp = new RegExp(/[A-Za-z]/, 'gi');
 
@@ -34,22 +32,18 @@ class StringBinder {
     if(!(bindKeys = Object.keys(binds)).length)
       return str;
 
-    const result : ProcessResult = this
-      ._process(str);
+    const result : ProcessResult = this._process(str);
 
-    const words = result.str
-      .split(StringBinder.Anchor);
-
-    if(!words.length)
+    if(!result.fragments.length)
       return str;
 
     let idx : number = 0;
     const children : React.ReactNode[] = [];
-    words.forEach((word, i) => {
+    result.fragments.forEach((word, i) => {
       children.push(word);
 
-      if((idx = bindKeys.indexOf(result.bindChain[i])) == -1)
-        children.push(result.bindChain[i]);
+      if((idx = bindKeys.indexOf(result.binds[i])) == -1)
+        children.push(result.binds[i]);
 
       else
         children.push(binds[bindKeys[idx]]);
@@ -59,19 +53,18 @@ class StringBinder {
   }
 
   private _process(str: string): ProcessResult {
-
-    let buf = '';
-    let sub = '';
-    let keyIdx = -1;
+    let sub : string = '';
+    let keyIdx : number = -1;
 
     const chain : string[] = [];
-    for(let i = 0, j = 0, len = str.length; i < len; i++) {
+    const fragments : string[] = [""];
+    for(let i = 0, j = 0, fid = 0, len = str.length; i < len; i++) {
 
       if(keyIdx === -1 && str[i] === StringBinder.SpecialSymbol && (i + 1) !== len)
         keyIdx = i;
 
       if(keyIdx === -1) {
-        buf += str[i];
+        fragments[fid] += str[i];
         continue;
       }
 
@@ -87,20 +80,18 @@ class StringBinder {
         continue;
 
       if(!sub.length) {
-        buf += str[i];
+        fragments[fid] += str[i];
         continue;
       }
 
       chain.push(sub);
-      buf += StringBinder.Anchor;
 
       i += sub.length + 1;
+      fid++;
+      fragments[fid] = ""
     }
 
-    return {
-      str: buf,
-      bindChain: chain,
-    }
+    return { fragments, binds: chain }
   }
 }
 
